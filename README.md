@@ -1,2 +1,2 @@
 # college-admission-website
-college admission website which makes admission easy
+"Streamline your journey to success with our intuitive college admission portal, connecting ambition to opportunity effortlessly."
