@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Detail Form with College Admission Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        fieldset {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        legend {
+            font-weight: bold;
+            color: #2980b9;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        #admissionResult {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+        }
+        .error {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Educational Details</h1>
+        <p class="subtitle">Enter your education details for college admission calculation</p>
+        
+        <form id="educationForm">
+            <fieldset>
+                <legend>12<sup>th</sup> Standard Marks</legend>
+                <div>
+                    <label for="physics">Physics</label>
+                    <input type="number" id="physics" name="physics" min="0" max="200" required>
+                </div>
+                <div>
+                    <label for="chemistry">Chemistry</label>
+                    <input type="number" id="chemistry" name="chemistry" min="0" max="200" required>
+                </div>
+                <div>
+                    <label for="math">Mathematics</label>
+                    <input type="number" id="math" name="math" min="0" max="200">
+                </div>
+                <div>
+                    <label for="biology">Biology</label>
+                    <input type="number" id="biology" name="biology" min="0" max="200">
+                </div>
+            </fieldset>
+            
+            <button type="button" id="calculateAdmission">Calculate College Admission</button>
+        </form>
+
+        <div id="admissionResult"></div>
+    </div>
+
+    <script>
+        function calculateCollegeAdmission(physics, chemistry, math, biology) {
+            // Ensure all inputs are numbers
+            physics = parseFloat(physics);
+            chemistry = parseFloat(chemistry);
+            math = parseFloat(math);
+            biology = parseFloat(biology);
+
+            // Check if inputs are valid numbers between 0 and 200
+            if (isNaN(physics) || isNaN(chemistry) || (isNaN(math) && isNaN(biology)) ||
+                physics < 0 || physics > 200 || chemistry < 0 || chemistry > 200 ||
+                (math < 0 || math > 200) && (biology < 0 || biology > 200)) {
+                return {
+                    success: false,
+                    message: "Invalid input. Please enter valid marks between 0 and 200."
+                };
+            }
+
+            let cutoff;
+            let stream;
+
+            // Calculate cutoff based on math or biology, whichever is higher
+            if (!isNaN(math) && !isNaN(biology)) {
+                cutoff = (physics / 2) + (chemistry / 2) + Math.max(math, biology);
+                stream = math > biology ? "Mathematics" : "Biology";
+            } else if (!isNaN(math)) {
+                cutoff = (physics / 2) + (chemistry / 2) + math;
+                stream = "Mathematics";
+            } else if (!isNaN(biology)) {
+                cutoff = (physics / 2) + (chemistry / 2) + biology;
+                stream = "Biology";
+            } else {
+                return {
+                    success: false,
+                    message: "Either Math or Biology mark is required."
+                };
+            }
+
+            // Round to two decimal places
+            cutoff = Math.round(cutoff * 100) / 100;
+
+            // Define cutoff thresholds for different college tiers
+            const topTierCutoff = 195;
+            const midTierCutoff = 185;
+            const entryTierCutoff = 175;
+
+            let result;
+            if (cutoff >= topTierCutoff) {
+                result = "Excellent! You are eligible for top-tier colleges.";
+            } else if (cutoff >= midTierCutoff) {
+                result = "Great! You have a good chance at mid to high-tier colleges.";
+            } else if (cutoff >= entryTierCutoff) {
+                result = "Good! You are eligible for many colleges.";
+            } else {
+                result = "You may find it challenging to get into most colleges. Consider exploring alternative options or improving your scores.";
+            }
+
+            return {
+                success: true,
+                cutoff: cutoff,
+                stream: stream,
+                result: result
+            };
+        }
+
+        document.getElementById('calculateAdmission').addEventListener('click', function() {
+            const physics = document.getElementById('physics').value;
+            const chemistry = document.getElementById('chemistry').value;
+            const math = document.getElementById('math').value;
+            const biology = document.getElementById('biology').value;
+            
+            const result = calculateCollegeAdmission(physics, chemistry, math, biology);
+            
+            const resultDiv = document.getElementById('admissionResult');
+            if (result.success) {
+                resultDiv.innerHTML = `
+                    <h2>Admission Calculation Result</h2>
+                    <p><strong>Cutoff Score:</strong> ${result.cutoff}</p>
+                    <p><strong>Stream:</strong> ${result.stream}</p>
+                    <p><strong>Result:</strong> ${result.result}</p>
+                `;
+            } else {
+                resultDiv.innerHTML = `<p class="error">${result.message}</p>`;
+            }
+        });
+    </script>
+</body>
+</html>

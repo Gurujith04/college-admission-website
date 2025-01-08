@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<section class="header">
+    <nav>
+        <div class="nav-links" id="navLinks">
+            <style>
+                /* Website Scrollerbar */
+                body::-webkit-scrollbar {
+                    width: 5px !important;
+                    height: 5px !important;
+                }
+
+                body::-webkit-scrollbar-track {
+                    background: #ffffff !important;
+                }
+
+                body::-webkit-scrollbar-thumb {
+                    background-color: #e0120ba4 !important;
+                    border: 1px solid #ff020279 !important;
+                    border-radius: 1px !important;
+                }
+
+                .header {
+                    min-height: 100vh;
+                    width: 100%;
+                    background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), url(../image/background.jpg);
+                    background-position: center;
+                    background-size: cover;
+                    position: relative;
+                }
+
+                nav {
+                    display: flex;
+                    padding: 2% 6%;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
+                nav img {
+                    width: 150px;
+                }
+
+                .nav-links {
+                    flex: 1;
+                    text-align: right;
+
+                }
+
+                .nav-links ul li {
+                    list-style: none;
+                    display: inline-block;
+                    padding: 8px 12px;
+                    position: relative;
+
+                }
+
+                .nav-links a {
+                    color: #000000;
+                    text-decoration: none;
+                    font-size: 16px;
+
+                }
+
+                .nav-links ul li::after {
+                    content: '';
+                    width: 0%;
+                    height: 2px;
+                    background: #ff0000;
+                    display: block;
+                    margin: auto;
+                    transition: 0.5s;
+
+                }
+
+                .nav-links ul li:hover::after {
+                    width: 100%;
+
+                }
+
+                .icon {
+                    display: none;
+                }
+            </style>
+
+            <span class="icon" onclick="hidemenu()">&#10005;</span>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About_us.html">About Us</a></li>
+                <li><a href="Admission_page.html">Admission</a></li>
+                <li><a href="Academics.html">Academics</a></li>
+                <li><a href="Placements.html">Placements</a></li>
+                <li><a href="#course_call">Course</a></li>
+                <li><a href="fees_page.html">Fees</a></li>
+                <li><a href="Contact_page.html">Contact</a></li>
+            </ul>
+        </div>
+        <span class="icon" onclick="showmenu()">&#9776;</span>
+    </nav>
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Departments</title>
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+            }
+
+            .inner-banner {
+                position: relative;
+                padding: 20px;
+                margin: 0px;
+                background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9XzTa_iHsVYfTCKKiAmobYt_ClCHlPro_Pg&s');
+                background-size: cover;
+                background-position: center;
+                height: 50vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+            }
+
+            .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                /* Dark overlay */
+                z-index: 1;
+            }
+
+            .inner-page-title {
+                position: relative;
+                z-index: 2;
+                text-align: center;
+            }
+
+            .inner-page-title h1 {
+                margin: 0;
+                font-size: 3em;
+            }
+
+            .breadcrum ul {
+                list-style: none;
+                padding: 0;
+                margin: 10px 0 0;
+            }
+
+            .breadcrum ul li {
+                display: inline;
+                margin-right: 5px;
+            }
+
+            .breadcrum ul li a {
+                color: white;
+                text-decoration: none;
+            }
+
+            .breadcrum ul li::after {
+                content: ">";
+                margin-left: 5px;
+            }
+
+            .breadcrum ul li:last-child::after {
+                content: "";
+            }
+
+            h1 {
+                text-align: center;
+                margin: 20px 0;
+            }
+
+            .grid-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+                padding: 20px;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .grid-item {
+                background-color: rgb(28, 210, 255);
+                border: 1px solid #cccccc;
+                border-radius: 5px;
+                overflow: hidden;
+                text-align: center;
+                box-shadow: 0px 2px 8px rgba(18, 116, 119, 0.1);
+                transition: transform 0.3s ease;
+            }
+
+            .grid-item img {
+                width: 100%;
+                height: auto;
+            }
+
+            .grid-item h3 {
+                margin: 10px 0;
+                padding: 10px;
+                background-color: #333;
+                color: white;
+            }
+
+            .grid-item p {
+                margin: 10px;
+                padding: 0 10px;
+                color: #ff0101;
+            }
+
+            .grid-item:hover {
+                transform: scale(1.05);
+            }
+
+            .grid-item a {
+                text-decoration: none;
+                color: inherit;
+                display: block;
+            }
+        </style>
+    </head>
+
+    <section class="inner-banner">
+        <div class="overlay"></div>
+        <div class="inner-page-title">
+            <h1>Academics</h1>
+            <div class="breadcrum">
+                <ul id="breadcrumbs">
+                    <li>
+                        <a href="file:///C:/Users/guruj/Downloads/College-Website-master/College-Website-master/index.html"
+                            class="home">Home</a>
+                    </li>
+                    <li>About Us</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <body>
+
+        <h1>Departments</h1>
+
+        <div class="grid-container">
+            <div class="grid-item">
+                <a href="department-it.html">
+                    <img src="https://www.kgkite.ac.in/wp-content/uploads/2021/04/ug-img1.jpg?x80171"
+                        alt="Information Technology">
+                    <h3>INFORMATION TECHNOLOGY</h3>
+                </a>
+            </div>
+
+            <div class="grid-item">
+                <a href="department-cse.html">
+                    <img src="https://www.kgkite.ac.in/wp-content/uploads/2021/04/ug-img2.jpg?x80171" alt="Computer Science
+                        and Engineering">
+                    <h3>COMPUTER SCIENCE AND ENGINEERING</h3>
+                </a>
+            </div>
+
+            <div class="grid-item">
+                <a href="department-csbs.html">
+                    <img src="https://www.kgkite.ac.in/wp-content/uploads/2021/04/ug-img2.jpg?x80171"
+                        alt="Computer Science and Business Systems">
+                    <h3>COMPUTER SCIENCE AND BUSINESS SYSTEMS</h3>
+                </a>
+            </div>
+
+            <div class="grid-item">
+                <a href="department-ai.html">
+                    <img src="https://www.kgkite.ac.in/wp-content/uploads/2021/04/ug-img3.jpg?x80171"
+                        alt="Artificial Intelligence & Data Science">
+                    <h3>ARTIFICIAL INTELLIGENCE & DATA SCIENCE</h3>
+                </a>
+            </div>
+
+            <div class="grid-item">
+                <a href="department-ece.html">
+                    <img src="https://www.kgkite.ac.in/wp-content/uploads/2021/04/ug-img4.jpg?x80171"
+                        alt="Electronics and Communication Engineering">
+                    <h3>ELECTRONICS AND COMMUNICATION ENGINEERING</h3>
+                </a>
+            </div>
+
+            <div class="grid-item">
+                <a href="department-mechanical.html">
+                    <img src="https://www.kgkite.ac.in/wp-content/uploads/2021/04/ug-img5.jpg?x80171"
+                        alt="Mechanical Engineering">
+                    <h3>MECHANICAL ENGINEERING</h3>
+                </a>
+            </div>
+
+            <div class="grid-item">
+                <a href="department-science.html">
+                    <img src="https://www.kgkite.ac.in/wp-content/uploads/2024/04/SH-370-x-268.jpg?x80171"
+                        alt="Science & Humanities">
+                    <h3>SCIENCE & HUMANITIES</h3>
+                </a>
+            </div>
+
+            <div class="grid-item">
+                <a href="department-mba.html">
+                    <img src="https://www.kgkite.ac.in/wp-content/uploads/2021/05/pg-img4.jpg?x80171"
+                        alt="Master of Business Administration">
+                    <h3>MASTER OF BUSINESS ADMINISTRATION</h3>
+                </a>
+            </div>
+
+            <div class="grid-item">
+                <a href="department-ai-ml.html">
+                    <img src="https://www.kgkite.ac.in/wp-content/uploads/2024/04/AI-ML-370-x-268.jpg?x80171"
+                        alt="Artificial Intelligence and Machine Learning">
+                    <h3>ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING</h3>
+                </a>
+            </div>
+
+            <div class="grid-item">
+                <a href="department-cyber-security.html">
+                    <img src="https://www.kgkite.ac.in/wp-content/uploads/2024/04/Cyber-Security-370-x-268.jpg?x80171"
+                        alt="Cyber Security">
+                    <h3>CYBER SECURITY</h3>
+                </a>
+            </div>
+        </div>
+
+    </body>
+
+    </html>

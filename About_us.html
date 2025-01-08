@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<section class="header">
+    <nav>
+        <div class="nav-links" id="navLinks">
+            <style>
+                /* Website Scrollerbar */
+                body::-webkit-scrollbar {
+                    width: 5px !important;
+                    height: 5px !important;
+                }
+
+                body::-webkit-scrollbar-track {
+                    background: #ffffff !important;
+                }
+
+                body::-webkit-scrollbar-thumb {
+                    background-color: #e0120ba4 !important;
+                    border: 1px solid #ff020279 !important;
+                    border-radius: 1px !important;
+                }
+
+                .header {
+                    min-height: 100vh;
+                    width: 100%;
+                    background-image: linear-gradient(rgb(255, 255, 255), rgb(0, 0, 0)), url(../image/background.jpg);
+                    background-position: center;
+                    background-size: cover;
+                    position: relative;
+                }
+
+                nav {
+                    display: flex;
+                    padding: 2% 6%;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
+                nav img {
+                    width: 150px;
+                }
+
+                .nav-links {
+                    flex: 1;
+                    text-align: right;
+
+                }
+
+                .nav-links ul li {
+                    list-style: none;
+                    display: inline-block;
+                    padding: 8px 12px;
+                    position: relative;
+
+                }
+
+                .nav-links a {
+                    color: #000000;
+                    text-decoration: none;
+                    font-size: 16px;
+
+                }
+
+                .nav-links ul li::after {
+                    content: '';
+                    width: 0%;
+                    height: 2px;
+                    background: #ff0000;
+                    display: block;
+                    margin: auto;
+                    transition: 0.5s;
+
+                }
+
+                .nav-links ul li:hover::after {
+                    width: 100%;
+
+                }
+
+                .icon {
+                    display: none;
+                }
+            </style>
+
+            <span class="icon" onclick="hidemenu()">&#10005;</span>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About_us.html">About Us</a></li>
+                <li><a href="Admission_page.html">Admission</a></li>
+                <li><a href="Academics.html">Academics</a></li>
+                <li><a href="Placements.html">Placements</a></li>
+                <li><a href="#course_call">Course</a></li>
+                <li><a href="fees_page.html">Fees</a></li>
+                <li><a href="Contact_page.html">Contact</a></li>
+            </ul>
+        </div>
+        <span class="icon" onclick="showmenu()">&#9776;</span>
+    </nav>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About KITE</title>
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+            }
+
+            .inner-banner {
+                position: relative;
+                padding: 20px;
+                margin: 0px;
+                background-image: url('image/About_img.jpg');
+                background-size: cover;
+                background-position: center;
+                height: 50vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+            }
+
+            .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                /* Dark overlay */
+                z-index: 1;
+            }
+
+            .inner-page-title {
+                position: relative;
+                z-index: 2;
+                text-align: center;
+            }
+
+            .inner-page-title h1 {
+                margin: 0;
+                font-size: 3em;
+            }
+
+            .breadcrum ul {
+                list-style: none;
+                padding: 0;
+                margin: 10px 0 0;
+            }
+
+            .breadcrum ul li {
+                display: inline;
+                margin-right: 5px;
+            }
+
+            .breadcrum ul li a {
+                color: white;
+                text-decoration: none;
+            }
+
+            .breadcrum ul li::after {
+                content: ">";
+                margin-left: 5px;
+            }
+
+            .breadcrum ul li:last-child::after {
+                content: "";
+            }
+        </style>
+    </head>
+
+    <body>
+        <section class="inner-banner">
+            <div class="overlay"></div>
+            <div class="inner-page-title">
+                <h1>About KITE</h1>
+                <div class="breadcrum">
+                    <ul id="breadcrumbs">
+                        <li>
+                            <a href="file:///C:/Users/guruj/Downloads/College-Website-master/College-Website-master/index.html"
+                                class="home">Home</a>
+                        </li>
+                        <li>About Us</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </body>
+
+</html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embed YouTube Video</title>
+</head>
+
+<body>
+    <center>
+        <h1>Welcome to Kgisl Institute Of Technology</h1>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/V-2aU5j3fQg?autoplay=0&si=e3kKVHl7nqCZCV_5"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+        </iframe>
+        <h2>KGiSL Institute of Technology was started
+            in the Year 2008</h2>
+    </center>
+</body>
+
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - KGiSl Institute of Technology</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        .section {
+            padding: 20px 0;
+            background: #fff;
+            margin-bottom: 10px;
+        }
+
+        .section h2 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            margin-bottom: 10px;
+        }
+
+        .faculty,
+        .facilities {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .faculty div,
+        .facilities div {
+            flex-basis: 45%;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #333;
+            color: #fff;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>KGiSL Institute of Technology</h1>
+    </header>
+
+    <div class="container">
+
+        <section class="section">
+            <h2>Our Story</h2>
+            <p>Founded with the vision of empowering students with a world-class education, Gokul Global University has
+                quickly become a beacon of excellence in higher education. Located in the heart of the city, our
+                university offers a wide range of undergraduate and postgraduate programs designed to prepare students
+                for the challenges of the modern world.</p>
+        </section>
+
+        <section class="section">
+            <h2>Mission Statement</h2>
+            <p>Our mission is to cultivate an inclusive and dynamic academic environment where students are encouraged
+                to explore their passions and achieve their full potential. We are committed to providing a high-quality
+                education that fosters critical thinking, innovation, and lifelong learning.</p>
+        </section>
+
+        <section class="section">
+            <h2>Our Faculty</h2>
+            <div class="faculty">
+                <div>
+                    <p>Our faculty is composed of distinguished scholars and industry experts who are dedicated to the
+                        intellectual and professional growth of our students. They bring a wealth of knowledge and
+                        real-world experience to the classroom, ensuring that students receive an education that is both
+                        rigorous and relevant.</p>
+                </div>
+                <div>
+                    <p>With small class sizes and personalized attention, our faculty members work closely with students
+                        to help them achieve their academic and career goals. Our commitment to excellence in teaching
+                        and research is reflected in the success of our graduates, who are well-prepared to excel in
+                        their chosen fields.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>State-of-the-Art Facilities</h2>
+            <div class="facilities">
+                <div>
+                    <p>At Gokul Global University, we believe that a conducive learning environment is key to student
+                        success. Our campus is equipped with state-of-the-art facilities, including modern classrooms,
+                        advanced laboratories, and a well-stocked library.</p>
+                </div>
+                <div>
+                    <p>Our facilities are designed to support a wide range of academic and extracurricular activities,
+                        providing students with the resources they need to thrive. We are constantly investing in our
+                        infrastructure to ensure that our students have access to the latest technology and amenities.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Intelligence university. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
+<style>body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f2f2f2;
+    }
+
+    h1,
+    h2 {
+        text-align: center;
+        color: white;
+    }
+
+    p {
+        text-align: center;
+        color: #666;
+    }
+
+    button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 40px auto;
+        background-color: #fff;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .container h1 {
+        margin-top: 0;
+    }
+
+    .container p {
+        margin-bottom: 20px;
+    }
+
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .gallery img {
+        width: 30%;
+        margin: 10px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .gallery img:hover {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+</style>
